@@ -12,6 +12,12 @@ class AuthService{
         const {data} = await axios.post('/users/login',user,{validateStatus:false})
         return data
     }
+
+    async Authenticate(){
+        const {data} = await axios.get('/users/user/isAuthenticate',{validateStatus:false})
+        return data
+    }
+
 }
 
 const auth_services = new AuthService()
