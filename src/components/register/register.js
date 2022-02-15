@@ -1,6 +1,7 @@
 import React from 'react'
 import {useNavigate} from 'react-router-dom'
-
+// css
+import './register.css'
 // services
 import auth_services from '../../services/Authenticate'
 
@@ -23,17 +24,15 @@ const Register = props => {
     } 
 
     return (
-        <div>
+        <div className='RegisterIndex'>
             <h1>Registro</h1>
             <div>
-                <form onSubmit={onSubmit}>
+                <form className="RegisterForm" onSubmit={onSubmit}>
                     <div>
-                        <label>Nombre de usuario / Username</label>
-                        <input type="text" id="username" />
+                        <input type="text" placeholder="Nombre de usuario" id="username" />
                     </div>
                     <div>
-                        <label> Contraseña / Password </label>
-                        <input type="password"  id="password" />
+                        <input type="password" placeholder="Contraseña" id="password" />
                     </div>
                     <div>
                         <button type="submit" >Registrarse</button>

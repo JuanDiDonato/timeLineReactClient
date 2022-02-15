@@ -8,7 +8,7 @@ import Perfil from './components/perfil/perfil';
 
 function App() {
   return (
-          <Router>
+        <Router>
           <Routes>
             <Route exact path="/register" element={<Register/>} />
             <Route exact path="/login" element={<Login/>} />

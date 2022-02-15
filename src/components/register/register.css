@@ -1,0 +1,12 @@
+.RegisterIndex{
+    display: grid;
+    grid-template-columns: 100%;
+    text-align: center;
+    margin: 5%;
+    padding: 5%;
+}
+.RegisterIndex div{
+    display:flex;
+    padding:1%;
+}
+
