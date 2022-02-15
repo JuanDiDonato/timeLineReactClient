@@ -1,7 +1,6 @@
 import React from 'react'
 import {useNavigate} from 'react-router-dom'
-// css
-import './register.css'
+
 // services
 import auth_services from '../../services/Authenticate'
 
@@ -18,7 +17,7 @@ const Register = props => {
         auth_services.Register(user).then(data => {
             alert(data.message)
             if(data.error === false){
-                history('/login')
+                history('/')
             }
         })
     } 

@@ -14,6 +14,11 @@ class UserServices{
         return data
     }
 
+    async ObtenerUsuarios(){
+        const {data} = await axios.get('/users/users',{validateStatus:false})
+        return data
+    }
+
 }
 
 const user_services = new UserServices()
