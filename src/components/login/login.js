@@ -1,11 +1,16 @@
-import React from 'react'
+import React,{useContext} from 'react'
 import {useNavigate} from 'react-router-dom'
 
+// servicios
 import auth_services from '../../services/Authenticate';
+
+// contexto
+import {AuthContext} from '../../context/authContext'
 
 export default function Login() {
 
     let history = useNavigate()
+    const authContext = useContext(AuthContext)
 
     const onSubmit = e => {
         e.preventDefault();
@@ -14,10 +19,10 @@ export default function Login() {
         user['password'] = document.getElementById('password').value;
     
         auth_services.Login(user).then(data => {
-            console.log(data)
             if(data === 'Unauthorized') alert('Usuario o contraseña incorrectos')
             else{
                 alert(data.message);
+                authContext.setLoguedUser(data.user)
                 history('/'+data.user.username);
             }
         })
