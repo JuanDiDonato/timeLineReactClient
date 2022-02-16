@@ -29,20 +29,19 @@ export default function Login() {
     } 
 
   return (
-    <div>
-        <h1> timeLineClient</h1>
-        <div>
+    <div className='container mx-auto text-center mt-5 col-md-8'>
+        <div className='card p-5'>
             <form onSubmit={onSubmit}>
-                <div>
-                    <label>Nombre de usuario / Username</label>
-                    <input type="text" id="username" />
+                <div className='m-2'>
+                    <label className='form-label'>Nombre de usuario</label>
+                    <input className='form-control' type="text" id="username" placeholder='username' />
                 </div>
-                <div>
-                    <label> Contraseña / Password </label>
-                    <input type="password"  id="password" />
+                <div className='m-2'>
+                    <label className='form-label'> Contraseña </label>
+                    <input className='form-control' type="password"  id="password" placeholder='password'/>
                 </div>
-                <div>
-                    <button type="submit" >Continuar</button>
+                <div className='m-2'>
+                    <button className='btn btn-primary mt-5' type="submit" >Continuar</button>
                 </div>
             </form>
         </div>

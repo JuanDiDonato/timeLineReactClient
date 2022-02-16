@@ -23,18 +23,19 @@ const Register = props => {
     } 
 
     return (
-        <div className='RegisterIndex'>
-            <h1>Registro</h1>
-            <div>
-                <form className="RegisterForm" onSubmit={onSubmit}>
-                    <div>
-                        <input type="text" placeholder="Nombre de usuario" id="username" />
+        <div className='container mx-auto text-center mt-5 col-md-8'>
+            <div className='card p-5'>
+                <form onSubmit={onSubmit}>
+                    <div className='m-2'>
+                        <label className='form-label'> Ingrese un nombre de usuario</label>
+                        <input className='form-control' type="text" placeholder="username" id="username" />
                     </div>
-                    <div>
-                        <input type="password" placeholder="Contraseña" id="password" />
+                    <div className='m-2'>
+                        <label className='form-label'> Ingrese su nueva contraseña</label>
+                        <input className='form-control' type="password" placeholder="password" id="password" />
                     </div>
-                    <div>
-                        <button type="submit" >Registrarse</button>
+                    <div className='m-2'>
+                        <button className='btn btn-primary mt-5' type="submit" >Registrarse</button>
                     </div>
                 </form>
             </div>

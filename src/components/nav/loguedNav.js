@@ -33,26 +33,31 @@ export default function LoguedNav () {
     }
 
     return (
-    <div>
-        <ul>
-            <li>TimeLineClient</li>
-            <li>{username}</li>
-            <li>
-                <input onChange={e=>buscador(e.target.value)} type="text" placeholder='Busca un usuario' />
-            </li>
-                {results.length > 0 ? 
-                results.map(result => {
-                    if(result !== username) return(
-                        <div key={results.indexOf(result)}>
-                            <Link to={`/${result}`}>{result}</Link>
-                        </div>
-                    )
-                })
-                : null}
-            <li>Mi linea de tiempo</li>
-            <li>Agregar evento</li>
-            <li>Salir</li>
-        </ul>
-    </div>
+        <nav className="navbar navbar-expand-lg navbar-light bg-light">
+        <div className="container-fluid">
+          <a className="navbar-brand" href={'/'+username}>{username}</a>
+          <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span className="navbar-toggler-icon"></span>
+          </button>
+          <div className="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul className="navbar-nav">
+              <li className="nav-item">
+                <a className="nav-link" href="#">Nuevo post</a>
+              </li>
+            </ul>
+            <ul className="navbar-nav ">
+                {results}
+            </ul>
+            <form className="mx-auto">
+              <input onChange={e => buscador(e.target.value)} class="form-control me-2" type="search" placeholder="Search" aria-label="Search"/>
+            </form>
+            <ul className="navbar-nav ">
+                <li className="nav-item">
+                    <a className="nav-link" href="#">Salir</a>
+                </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
   )
 }
