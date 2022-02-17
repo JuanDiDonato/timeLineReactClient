@@ -14,11 +14,11 @@ const AnyUserFollow = (username, isFriend, setIsFriend) => {
     }}
 
   return (
-    <div>
+    <div className='container mx-auto text-center'>
         {!isFriend ?
-        <button onClick={() => followButton()}>Seguir</button>
+        <button className='btn btn-primary' onClick={() => followButton()}>Seguir</button>
         :
-        <button onClick={() => followButton()}>Dejar de seguir</button>
+        <button className='btn btn-outline-danger' onClick={() => followButton()}>Dejar de seguir</button>
         }
     </div>
   )

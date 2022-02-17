@@ -1,12 +1,9 @@
 import React from 'react'
-import {useNavigate} from 'react-router-dom'
 
 // services
 import auth_services from '../../services/Authenticate'
 
 const Register = props => {
-    
-    let history = useNavigate()
 
     const onSubmit = e => {
         e.preventDefault();
@@ -17,7 +14,7 @@ const Register = props => {
         auth_services.Register(user).then(data => {
             alert(data.message)
             if(data.error === false){
-                history('/')
+                props.history.push('/')
             }
         })
     } 

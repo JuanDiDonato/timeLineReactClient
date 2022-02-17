@@ -11,13 +11,13 @@ export default function UnauthorizedNav() {
         <div className="collapse navbar-collapse" id="navbarSupportedContent">
           <ul className="navbar-nav me-auto mb-2 mb-lg-0">
             <li className="nav-item">
-              <a className="nav-link active" aria-current="page">TimeLineClient</a>
+              <Link className="nav-link active" to='/' aria-current="page">TimeLineClient</Link>
             </li>
             <li className="nav-item">
-              <a className="nav-link" href='/' >Acceder</a>
+              <Link className="nav-link" to='/' >Acceder</Link>
             </li>
             <li className="nav-item">
-              <a className="nav-link" href='/register'>Registrate</a>
+              <Link className="nav-link" to='/register'>Registrate</Link>
             </li>
           </ul>
         </div>

@@ -1,6 +1,6 @@
 import React from 'react';
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-import './assets/css/bootstrap.css'
+import { BrowserRouter as Router, Route } from 'react-router-dom';
+import './assets/css/bootstrap.min.css'
 
 // componentes
 import Register from "./components/register/register";
@@ -12,11 +12,9 @@ function App() {
   return (
         <Router>
           <Nav/>
-          <Routes>
-            <Route exact path="/register" element={<Register/>} />
-            <Route exact path="/" element={<Login/>} />
-            <Route exact path="/:username" element={<Perfil/>} />
-          </Routes>
+            <Route exact path="/register" component={Register} />
+            <Route exact path="/" component={Login} />
+            <Route exact path="/:username" component={Perfil} />
         </Router>
   );
 }

@@ -1,5 +1,4 @@
 import React,{useContext} from 'react'
-import {useNavigate} from 'react-router-dom'
 
 // servicios
 import auth_services from '../../services/Authenticate';
@@ -7,9 +6,8 @@ import auth_services from '../../services/Authenticate';
 // contexto
 import {AuthContext} from '../../context/authContext'
 
-export default function Login() {
+export default function Login(props) {
 
-    let history = useNavigate()
     const authContext = useContext(AuthContext)
 
     const onSubmit = e => {
@@ -23,7 +21,7 @@ export default function Login() {
             else{
                 alert(data.message);
                 authContext.setLoguedUser(data.user)
-                history('/'+data.user.username);
+                props.history.push('/'+data.user.username);
             }
         })
     } 
