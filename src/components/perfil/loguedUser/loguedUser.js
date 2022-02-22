@@ -24,6 +24,8 @@ const LoguedUser = () => {
   const [posts, setPosts] = useState()
   const [perfil, setPerfil] = useState({ 'description': '', files: [] })
   const [post, setPost] = useState({ 'title': '', 'comment': '', files: [] })
+  const [edit,setEdit] = useState(false)
+  const [create,setCreate] = useState(false)
 
   useEffect(() => {
     perfil_services.Perfil(loguedUsername).then(data => {
@@ -37,8 +39,6 @@ const LoguedUser = () => {
     })
   }, [user])
 
-
-
   if (friends && posts) {
     return (
       <div>
@@ -47,17 +47,16 @@ const LoguedUser = () => {
           {PerfilHeader(user, friends)}
         </div>
 
-        <div className=' d-flex col-sm-3 mx-auto text-center mt-3'>
-          <div className='mx-auto '>
-            {loguedUserEditePerfil(perfil, setPerfil)}
+        <div className='options'>
+          <div>
+            {loguedUserEditePerfil(perfil,setPerfil,setUser,edit,setEdit,loguedUsername)}
           </div>
-          <div className='mx-auto '>
-            {LoguedUserCreatePost(post, setPost, setPosts, loguedUsername)}
+          <div >
+            {LoguedUserCreatePost(post, setPost, setPosts,create,setCreate, loguedUsername)}
           </div>
         </div>
 
         <div className='container'>
-
           {LoguedUserPosts(posts, setPosts, loguedUsername)}
         </div>
 

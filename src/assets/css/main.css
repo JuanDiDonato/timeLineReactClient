@@ -1,0 +1,15 @@
+/* fuentes */
+@font-face {
+    font-family: 'Lobster';
+    src: local('Lobster'), url(../fonts/Lobster-Regular.ttf) format('truetype');
+}
+@font-face {
+    font-family: 'BebasNeue';
+    src: local('BebasNeue'), url(../fonts/BebasNeue-Regular.ttf) format('truetype');
+}
+
+* {
+    margin: 0%;
+    padding: 0%;
+    box-sizing: border-box;
+}

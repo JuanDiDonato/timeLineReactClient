@@ -1,5 +1,8 @@
 import React, {useContext} from 'react'
 import { useParams } from 'react-router-dom';
+import './css/header.css'
+import './css/editar.css'
+import './css/crear.css'
 
 // contexto
 import {AuthContext} from '../../context/authContext'

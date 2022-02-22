@@ -1,10 +1,7 @@
 import React, { useEffect, useState, useContext } from 'react'
 import { Link } from 'react-router-dom'
-
-// services
 import user_services from '../../services/User'
-
-// context
+import auth_services from '../../services/Authenticate'
 import { AuthContext } from '../../context/authContext'
 
 export default function LoguedNav(props) {
@@ -29,41 +26,38 @@ export default function LoguedNav(props) {
     } else {
       setResults([])
     }
-
   }
 
-  return (
-    <div className='mx-auto'>
+  const logout = () => {
+    auth_services.Logout()
+  }
 
-      <nav className="navbar navbar-expand-lg navbar-light bg-light">
-        <div className="container-fluid">
-          <Link className="navbar-brand" to={'/' + username}>{username}</Link>
-          <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span className="navbar-toggler-icon"></span>
-          </button>
-          <div className="collapse navbar-collapse" id="navbarSupportedContent">
-            <form className="mx-auto">
-              <input onChange={e => buscador(e.target.value)} class="form-control me-2" type="search" placeholder="Search" aria-label="Search" />
-            </form>
-            <ul className="navbar-nav ">
-              <li className="nav-item">
-                <Link className="nav-link" to="#">Salir</Link>
-              </li>
-            </ul>
+  if (users) {
+    return (
+      <div className='main-nav'>
+        <nav>
+          <div id='user'>
+            <Link to={'/' + username}>{username}</Link>
           </div>
-        </div>
-      </nav>
+          <div id='buscador'>
+            <input onChange={e => buscador(e.target.value)} type="search" placeholder="Search" aria-label="Search" />
+          </div>
+          <div id='logout'>
+            <Link onClick={() => logout()} to="/">Salir</Link>
+          </div>
+        </nav>
 
-      {results.length > 0 ?
-        <select className="d-flex mx-auto col-md-3 text-center" size="3" aria-label="size 3 select example">
-          {results.map(result => {
+        {results.length > 0 ?
+          results.map(result => {
             return (
-              <option key={result} value={result}>{result}</option>
+              <tr key={results.indexOf(result)}>
+                <td><Link to={'/' + result}>{result}</Link></td>
+              </tr>
             )
-          })}
-        </select>
-        : null}
-    </div>
+          })
+          : null}
+      </div>
 
-  )
+    )
+  }
 }

@@ -1,12 +1,10 @@
 import React,{useContext} from 'react'
-
-// servicios
+import Aos from 'aos';
 import auth_services from '../../services/Authenticate';
-
-// contexto
 import {AuthContext} from '../../context/authContext'
 
 export default function Login(props) {
+    Aos.init()
 
     const authContext = useContext(AuthContext)
 
@@ -28,10 +26,10 @@ export default function Login(props) {
 
   return (
     <div className='container mx-auto text-center mt-5 col-md-8'>
-        <div className='card p-5'>
+        <div className='card p-5' data-aos="fade-up">
             <form onSubmit={onSubmit}>
                 <div className='m-2'>
-                    <label className='form-label'>Nombre de usuario</label>
+                    <label className='form-label' >Nombre de usuario</label>
                     <input className='form-control' type="text" id="username" placeholder='username' />
                 </div>
                 <div className='m-2'>

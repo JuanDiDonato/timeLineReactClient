@@ -1,6 +1,7 @@
 import React from 'react';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
-import './assets/css/bootstrap.min.css'
+
+import './assets/css/main.css'
 
 // componentes
 import Register from "./components/register/register";

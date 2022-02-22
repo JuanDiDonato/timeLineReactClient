@@ -18,6 +18,11 @@ class AuthService{
         return data
     }
 
+    async Logout(){
+        const {data} = await axios.get('/users/user/logout',{validateStatus:false})
+        return data
+    }
+
 }
 
 const auth_services = new AuthService()

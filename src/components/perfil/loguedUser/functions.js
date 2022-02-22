@@ -12,15 +12,13 @@ class LoguedUserFunctions{
     }
 
     editarPerfil(perfil){
-        perfil_services.CompletarPerfil(perfil).then(data => {
-            console.log(data)
-        })
+        const data = perfil_services.CompletarPerfil(perfil)
+        return data
     }
 
     crearPost(post){
-        post_services.CrearPost(post).then(data => {
-            console.log(data)
-        })
+        const data = post_services.CrearPost(post)
+        return data
     }
 
     editarPost(id,post){

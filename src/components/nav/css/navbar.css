@@ -1,0 +1,41 @@
+.main-nav{
+    display: flex;
+    justify-content: center;
+}
+.main-nav nav{
+    display: flex;
+    justify-content:space-between;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    background-color: white;
+    width: 100vw;
+    padding: 2vh;
+}
+
+
+.main-nav a{
+    text-decoration: none;
+}
+.main-nav nav #buscador{
+    text-align: center;
+}
+.main-nav nav #user{
+    font-family: 'Lobster';
+    text-align: left;
+    margin-left: 3vw;
+}
+.main-nav nav #logout{
+    text-align: right;
+    margin-right: 3vw;
+}
+
+.main-nav tr{
+    position: absolute;
+    top: 40px;
+    background-color: white;
+    width: 250px;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+    padding: 5px;
+}
