@@ -42,9 +42,8 @@ const LoguedUser = () => {
   if (friends && posts) {
     return (
       <div>
-
-        <div>
-          {PerfilHeader(user, friends)}
+        <div >
+          {PerfilHeader(user, friends,loguedUsername)}
         </div>
 
         <div className='options'>
@@ -56,7 +55,7 @@ const LoguedUser = () => {
           </div>
         </div>
 
-        <div className='container'>
+        <div>
           {LoguedUserPosts(posts, setPosts, loguedUsername)}
         </div>
 

@@ -37,7 +37,7 @@ export default function LoguedNav(props) {
       <div className='main-nav'>
         <nav>
           <div id='user'>
-            <Link to={'/' + username}>{username}</Link>
+            <Link to={'/' + username}>Mi linea de tiempo</Link>
           </div>
           <div id='buscador'>
             <input onChange={e => buscador(e.target.value)} type="search" placeholder="Search" aria-label="Search" />
@@ -50,9 +50,11 @@ export default function LoguedNav(props) {
         {results.length > 0 ?
           results.map(result => {
             return (
-              <tr key={results.indexOf(result)}>
-                <td><Link to={'/' + result}>{result}</Link></td>
-              </tr>
+              <div className='results'>
+                <tr key={results.indexOf(result)}>
+                  <td><Link to={'/' + result}>{result}</Link></td>
+                </tr>
+              </div>
             )
           })
           : null}

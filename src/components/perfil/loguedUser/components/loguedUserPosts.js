@@ -1,4 +1,6 @@
 import React from 'react'
+import moment from 'moment'
+import 'moment/locale/es'
 import logued_user_functions from '../functions'
 
 export default function LoguedUserPosts(posts, setPosts, loguedUsername) {
@@ -6,7 +8,7 @@ export default function LoguedUserPosts(posts, setPosts, loguedUsername) {
     const deletePost = async (id) => {
         logued_user_functions.borrarPost(id)
         const data = await logued_user_functions.obtenerPosts(loguedUsername)
-        if(data) setPosts(data.posts)
+        if (data) setPosts(data.posts)
 
     }
     const editPost = async (id) => {
@@ -18,30 +20,38 @@ export default function LoguedUserPosts(posts, setPosts, loguedUsername) {
         const data = await logued_user_functions.obtenerPosts(loguedUsername)
         if (data) setPosts(data.posts)
     }
+    if (posts.length > 0) {
+        return (
+            <div>
+                {posts.map(post => {
+                    return (
+                        <div className='post' key={posts.indexOf(post)}>
+                            <div className='title'>
+                                {post.title}
+                            </div>
+                            <div>
+                                <img src={'http://localhost:5000/files/' + post.file[0]} alt='test' />
+                            </div>
+                            <div className='comment'>
+                                <h6>{moment(post.createdAt).fromNow()}</h6>
+                                <h4>{post.comment}</h4>
+                            </div>
+                            <div>
+                                <button onClick={() => deletePost(post._id)} >X</button>
+                                {/* <button onClick={() => editPost(post._id)}>/</button> */}
+                            </div>
 
-    return (
-        <div className='container'>
-            {posts.map(post => {
-                return (
-                    <div className='card col-md-6 p-3' key={posts.indexOf(post)}>
-                        <div className='card-header'>
-                            {post.title}
                         </div>
-                        <div className='card-body'>
-                            <h5>{post.comment}</h5>
-                            <h6>{post.createdAt}</h6><img className='img-fluid' src={'http://localhost:5000/files/' + post.file[0]} alt='test' />
-                        </div>
+                    )
+                })}
+            </div>
+        )
+    } else {
+        return (
+            <div className='message'>
+                <h3>El usuario no tiene ninguna publicacion</h3>
+            </div>
+        )
+    }
 
-                        <button onClick={() => deletePost(post._id)} >borrar post</button>
-                        <button onClick={() => editPost(post._id)}>ediar post</button>
-
-                        <div>
-                            <input type="text" id='title' placeholder='new title' />
-                            <input type="text" id='comment' placeholder='new comment' />
-                        </div>
-                    </div>
-                )
-            })}
-        </div>
-    )
 }

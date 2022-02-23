@@ -1,20 +1,24 @@
 import React from 'react'
+import moment from 'moment'
+import 'moment/locale/es'
 
 export default function AnyUserPosts(posts) {
 
-  if (posts) {
+  if (posts && posts.length > 0) {
     return (
       <div>
-        <h2>Mis posts</h2>
         {posts.map(post => {
           return (
-            <div className='card col-md-6 p-3' key={posts.indexOf(post)}>
-              <div className='card-header'>
+            <div className='post' key={posts.indexOf(post)}>
+              <div className='title'>
                 {post.title}
               </div>
-              <div className='card-body'>
-                <h5>{post.comment}</h5>
-                <h6>{post.createdAt}</h6><img className='img-fluid' src={'http://localhost:5000/files/' + post.file[0]} alt='test' />
+              <div>
+                <img src={'http://localhost:5000/files/' + post.file[0]} alt='test' />
+              </div>
+              <div className='comment'>
+                <h6>{moment(post.createdAt).fromNow()}</h6>
+                <h4>{post.comment}</h4>
               </div>
             </div>
           )
@@ -23,7 +27,9 @@ export default function AnyUserPosts(posts) {
     )
   } else {
     return (
-      <h1>CARGANDO</h1>
+      <div className='message'>
+        <h3>El usuario no tiene ninguna publicacion</h3>
+      </div>
     )
   }
 }

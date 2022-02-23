@@ -2,13 +2,21 @@ import React from 'react'
 import Aos from 'aos';
 import logued_user_functions from '../functions';
 Aos.init()
-export default function LoguedUserCreatePost(post, setPost, setPosts, create, setCreate, loguedUsername) {
 
+export default function LoguedUserCreatePost(post, setPost,
+    setPosts, create,
+    setCreate, loguedUsername) {
     const createMode = () => {
-        if (!create) setCreate(true)
-        else setCreate(false)
+        if (!create) {
+            setCreate(true)
+            document.getElementById('create-mode').classList.add('show')
+            document.getElementById('root').classList.add('back')
+        } else {
+            setCreate(false)
+            document.getElementById('create-mode').classList.remove('show')
+            document.getElementById('root').classList.remove('back')
+        }
     }
-
     const onChangePost = e => {
         setPost({ ...post, [e.target.name]: e.target.value });
     }
@@ -25,21 +33,39 @@ export default function LoguedUserCreatePost(post, setPost, setPosts, create, se
             const data = await logued_user_functions.obtenerPosts(loguedUsername)
             if (data) setPosts(data.posts)
         }
+        document.getElementById('title').value = ''
+        document.getElementById('files').value = ''
+        document.getElementById('comment').value = ''
+        setCreate(false)
+        createMode()
     }
 
     return (
-        <div className='edit'>
-            <div>
-                <button onClick={() => createMode()}>Añadir post</button>
-            </div>
-            {create ?
-                <div className='edit-mode' data-aos="fade-down">
-                    <input className='form-control m-1' onChange={onChangePost} type="text" placeholder='title' name='title' />
-                    <textarea className='form-control m-1' onChange={onChangePost} placeholder='comment' name='comment' cols="30" rows="10"></textarea>
-                    <input className='form-control m-1' onChange={e => upFilesPost(e.target.files)} type="file" name='files' placeholder='foto de perfil' />
-                    <button type="button" className="btn btn-primary" onClick={() => savePost()}>Actualizar</button>
+        <div className='edit' >
+            <div className='edit-mode hidden' id='create-mode'>
+                <div>
+                    <input className='form-control m-1' onChange={e => upFilesPost(e.target.files)} type="file" name='files' id='files' placeholder='foto de perfil' />
+                    <input className='form-control m-1' onChange={onChangePost} type="text" placeholder='title' name='title' id='title'/>
                 </div>
-            : null }
+                <div>
+                    <textarea className='form-control m-1' onChange={onChangePost} placeholder='comment' name='comment' id='comment' cols="30" rows="10"></textarea>
+                </div>
+                <div>
+                    <button className='btn' type="button" className="btn btn-primary" onClick={() => savePost()}>Crear</button>
+                    <button className='btn' type="button" onClick={
+                        () => {
+                            setCreate(false)
+                            createMode()
+                        }}>
+                        Cancelar
+                    </button>
+                </div>
+            </div>
+            <div>
+                <button className='btn' onClick={() => createMode()}>Añadir post</button>
+            </div>
+
+
         </div>
 
     )

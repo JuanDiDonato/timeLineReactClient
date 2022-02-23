@@ -7,8 +7,15 @@ Aos.init()
 export default function loguedUserEditePerfil(perfil, setPerfil, setUser, edit, setEdit, loguedUsername) {
 
     const editMode = () => {
-        if (!edit) setEdit(true)
-        else setEdit(false)
+        if (!edit) {
+            setEdit(true)
+            document.getElementById('edit-mode').classList.add('show')
+            document.getElementById('root').classList.add('back')
+        } else {
+            setEdit(false)
+            document.getElementById('edit-mode').classList.remove('show')
+            document.getElementById('root').classList.remove('back')
+        }
     }
 
     const onChange = e => {
@@ -30,22 +37,34 @@ export default function loguedUserEditePerfil(perfil, setPerfil, setUser, edit, 
             })
             document.getElementById('desc').value = ''
             document.getElementById('files').value = null
+            setEdit(false)
+            editMode()
         }
     }
 
     return (
         <div className='edit'>
-            <div>
-                <button onClick={() => editMode()}>Editar perfil</button>
+            <div className='edit-mode hidden' id='edit-mode'>
+                <div>
+                    <textarea onChange={onChange} id='desc' placeholder='Descripcion del perfil' name='description' cols="30" rows="5"></textarea>
+                </div>
+                <div>
+                    <input onChange={e => upImage(e.target.files)} id='files' type="file" name='files' placeholder='Foto de perfil' />
+                </div>
+                <div>
+                    <button className='btn' type="button" onClick={() => savePerfil()}>Actualizar</button>
+                    <button className='btn' type="button" onClick={
+                        () => {
+                            setEdit(false)
+                            editMode()
+                        }}>
+                        Cancelar
+                    </button>
+                </div>
             </div>
-            {edit ?
-                    <div className='edit-mode' data-aos="fade-down">
-                        <textarea onChange={onChange} id='desc' placeholder='Descripcion del perfil' name='description' cols="30" rows="5"></textarea>
-                        <input onChange={e => upImage(e.target.files)} id='files' type="file" name='files' placeholder='Foto de perfil' />
-                        <button type="button" onClick={() => savePerfil()}>Actualizar</button>
-                    </div>
-                : null}
-
+            <div>
+                <button className='btn' onClick={() => editMode()}>Editar perfil</button>
+            </div>
         </div>
     )
 }

@@ -18,24 +18,37 @@
     text-decoration: none;
 }
 .main-nav nav #buscador{
-    text-align: center;
+    width: 25%;
 }
+.main-nav nav #buscador input{
+    width: 100%;
+    padding: 3%;
+    text-decoration: none;
+    box-shadow: none;
+    border-radius: 5px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
 .main-nav nav #user{
     font-family: 'Lobster';
     text-align: left;
     margin-left: 3vw;
 }
 .main-nav nav #logout{
+    font-family: 'Lobster';
     text-align: right;
     margin-right: 3vw;
 }
 
-.main-nav tr{
-    position: absolute;
-    top: 40px;
+.results div{
+    border: 1px solid red;
+}
+.results tr{
+    position: fixed;
+    top: 10%;
+    left: 50%;
+    right: 50%;
+    text-align: center;
     background-color: white;
-    width: 250px;
-    border-bottom-left-radius: 5px;
-    border-bottom-right-radius: 5px;
-    padding: 5px;
+
 }

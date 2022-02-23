@@ -7,6 +7,7 @@ class AnyUserFuctions{
 
     // metodo para seguir o agregar un usuario
     Follow(username){
+        console.log(username)
         user_services.Seguir(username).then(data => {
             if(data.error === true) alert(data.message)
         }) 
