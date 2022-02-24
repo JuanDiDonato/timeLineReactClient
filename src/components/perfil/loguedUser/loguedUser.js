@@ -1,6 +1,4 @@
 import React, { useEffect, useState, useContext } from 'react'
-// pantalla de carga
-import LoadScreen from '../../loadScreen/loadScreen';
 // servicios
 import perfil_services from '../../../services/Perfil';
 // contexto
@@ -19,7 +17,7 @@ const LoguedUser = () => {
   const loguedUsername = authContext.loguedUser.username
 
   //eslint-disable-next-line
-  const [user, setUser] = useState({ 'username': '', 'description': '', 'photo': '' })
+  const [user, setUser] = useState({ 'username': '','fullname':'' ,'description': '', 'photo': '' })
   const [friends, setFriends] = useState()
   const [posts, setPosts] = useState()
   const [perfil, setPerfil] = useState({ 'description': '', files: [] })
@@ -30,14 +28,16 @@ const LoguedUser = () => {
   useEffect(() => {
     perfil_services.Perfil(loguedUsername).then(data => {
       if (data.error === false) {
-        user.username = data.perfil.username
-        user.description = data.perfil.description
-        user.photo = data.perfil.photo
+        setUser({ 
+          'username': data.perfil.username,
+          'fullname':data.perfil.fullname ,
+          'description':data.perfil.description,
+          'photo':data.perfil.photo })
         setFriends(data.perfil.friends)
         setPosts(data.perfil.posts)
       }
     })
-  }, [user])
+  }, [])
 
   if (friends && posts) {
     return (
@@ -61,9 +61,9 @@ const LoguedUser = () => {
 
       </div>
     )
-  } else {
-    return (
-      <LoadScreen />
+  }else{
+    return(
+      <div></div>
     )
   }
 }

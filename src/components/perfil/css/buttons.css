@@ -6,6 +6,7 @@
     border-radius: 5px;
     height: 30px;
     width: 100px;
+    background-color: skyblue;
 }
 /* Modal */
 .edit-mode{
@@ -22,8 +23,10 @@
     top:50%;
     background-color: white;
     border-radius: 15px;
+    border: 2px solid black;
     padding:2%;
     height: 55%;
+    z-index: 5000;
 }
 .show textarea{
     width: 100%;
@@ -37,6 +40,6 @@
     width: 40%;
     margin: 1%;
 }
-.back, img{
-    background-color: rgba(0, 0, 0, 0.637);
+.back{
+    background-color: rgba(0, 0, 0, 0.6);
 }

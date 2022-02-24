@@ -4,6 +4,7 @@ import './css/header.css'
 import './css/buttons.css'
 import './css/post.css'
 import './css/follow.css'
+import './css/posts.css'
 
 // contexto
 import {AuthContext} from '../../context/authContext'

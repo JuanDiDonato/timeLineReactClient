@@ -1,6 +1,5 @@
 import React, { useEffect, useState, useContext } from 'react'
 import { useParams } from 'react-router-dom';
-import LoadScreen from '../../loadScreen/loadScreen';
 import perfil_services from '../../../services/Perfil';
 import { AuthContext } from '../../../context/authContext';
 import PerfilHeader from '../perfilHeader';
@@ -21,9 +20,9 @@ const AnyUser = () => {
     perfil_services.Perfil(username).then(data => {
       if (data.error === false) {
         if (data.perfil.friends.indexOf(loguedUsername) !== -1) setIsFriend(true)
-
         setUser({
           'username': data.perfil.username,
+          'fullname': data.perfil.fullname,
           'description': data.perfil.description,
           'photo': data.perfil.photo
         })
@@ -31,11 +30,9 @@ const AnyUser = () => {
         setPosts(data.perfil.posts)
       }
     })
-
   }, [username])
 
   if (friends) {
-
     return (
       <div>
         <div>
@@ -47,10 +44,9 @@ const AnyUser = () => {
 
       </div>
     )
-  } else {
-    return (
-      <LoadScreen />
-    )
+  }else{
+    return(
+      <div></div>)
   }
 }
 

@@ -31,7 +31,7 @@ export default function LoguedUserCreatePost(post, setPost,
         const data = await logued_user_functions.crearPost(formData)
         if (data && data.error === false) {
             const data = await logued_user_functions.obtenerPosts(loguedUsername)
-            if (data) setPosts(data.posts)
+            if (data) setPosts(data)
         }
         document.getElementById('title').value = ''
         document.getElementById('files').value = ''

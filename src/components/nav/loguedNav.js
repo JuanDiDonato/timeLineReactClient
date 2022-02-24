@@ -41,23 +41,26 @@ export default function LoguedNav(props) {
           </div>
           <div id='buscador'>
             <input onChange={e => buscador(e.target.value)} type="search" placeholder="Search" aria-label="Search" />
+            <div className='results'>
+              {results.length > 0 ?
+                results.map(result => {
+                  return (
+                    <ul className='result' key={results.indexOf(result)}>
+                      <li><Link to={'/' + result}>{result}</Link></li>
+                    </ul>
+
+                  )
+                })
+                : null}
+            </div>
           </div>
           <div id='logout'>
             <Link onClick={() => logout()} to="/">Salir</Link>
           </div>
-        </nav>
 
-        {results.length > 0 ?
-          results.map(result => {
-            return (
-              <div className='results'>
-                <tr key={results.indexOf(result)}>
-                  <td><Link to={'/' + result}>{result}</Link></td>
-                </tr>
-              </div>
-            )
-          })
-          : null}
+
+
+        </nav>
       </div>
 
     )

@@ -2,25 +2,30 @@
 .header{
     display: flex;
     justify-content: space-around;
-    margin-top: 10%;
+    margin-top: 4.5%;
     margin-bottom: 10%;
     text-align: center;
+    padding: 4%;
+    background-color: skyblue;
+    box-shadow: 3px 2px 2px 1px grey;
+
 }
 .header-info{
     margin-top: 5%;
     margin-right: 10%;
+    width: 80%;
 }
 .header-image{
     margin-left: 10%;
 }
-.header h3,h4,h5{
+.header h2,h4,h5{
     font-family: 'BebasNeue';
     padding: 3%;
     margin: auto;
 }
 /* Imagen de perfil */
 .header img{
-    border: 4px solid black;
+    border: 2px solid black;
     width: 250px;
     height: 250px;
     border-radius: 200px;

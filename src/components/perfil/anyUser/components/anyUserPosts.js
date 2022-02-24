@@ -6,7 +6,7 @@ export default function AnyUserPosts(posts) {
 
   if (posts && posts.length > 0) {
     return (
-      <div>
+      <div className='time-line'>
         {posts.map(post => {
           return (
             <div className='post' key={posts.indexOf(post)}>
