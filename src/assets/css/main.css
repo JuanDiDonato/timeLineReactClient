@@ -7,11 +7,16 @@
     font-family: 'BebasNeue';
     src: local('BebasNeue'), url(../fonts/BebasNeue-Regular.ttf) format('truetype');
 }
-
+@font-face {
+    font-family: 'Barriecito';
+    src: local('Barriecito'), url(../fonts/Barriecito-Regular.ttf) format('truetype');
+}
 * {
     margin: 0%;
     padding: 0%;
     box-sizing: border-box;
+    font-family: 'Barriecito';
+
 }
 
 li{
@@ -20,4 +25,8 @@ li{
 
 body{
     background-color: white;
+    background-image: url('../img/manchas.png');
+    background-size: 80%;
+    background-repeat: repeat-y;
+    background-position: center;
 }

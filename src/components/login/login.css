@@ -11,13 +11,21 @@
     padding: 1%;
     margin: 1%;
     border: 1px solid black;
-    border-radius: 5px;
+    border-radius: 30px;
     width: 30%;
 }
 
 .login button{
     border: 0;
+    border-radius: 30px;
     padding: 1%;
     margin: 1%;
     width: 30%;
+    background-color: #b61264;
+    color: white;
+    cursor: pointer;
+}
+
+.login button:hover{
+    background-color: #700c3e;
 }

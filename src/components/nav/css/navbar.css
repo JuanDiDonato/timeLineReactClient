@@ -18,7 +18,7 @@
 .main-nav a{
     text-decoration: none;
     color: black;
-    font-family: 'BebasNeue';
+    font-family: 'Barriecito';
 
 }
 .main-nav nav #buscador{
@@ -34,17 +34,17 @@
     border-radius: 20px;
     border: 0;
     border: 1px solid black;
-    font-family: 'BebasNeue';
+    font-family: 'Barriecito';
     text-align: center;
 }
 .main-nav nav #user{
     text-align: left;
     margin-left: 3vw;
-    font-family: 'BebasNeue';
+    font-family: 'Barriecito';
 
 }
 .main-nav nav #logout{
-    font-family: 'BebasNeue';
+    font-family: 'Barriecito';
     text-align: right;
     margin-right: 3vw;
 }

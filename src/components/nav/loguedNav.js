@@ -30,6 +30,8 @@ export default function LoguedNav(props) {
 
   const logout = () => {
     auth_services.Logout()
+    authContext.setLoguedUser({username: '', photo : '', email : ''})
+    props.history.push('/')
   }
 
   if (users) {
@@ -55,7 +57,7 @@ export default function LoguedNav(props) {
             </div>
           </div>
           <div id='logout'>
-            <Link onClick={() => logout()} to="/">Salir</Link>
+            <div style={{cursor:'pointer'}} onClick={() => logout()}>Salir</div>
           </div>
 
 

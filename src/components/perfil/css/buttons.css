@@ -2,11 +2,13 @@
     text-align: center;
 }
 .btn{
-    font-family: 'BebasNeue';
+    font-family: 'Barriecito';
+    border: none;
     border-radius: 5px;
-    height: 30px;
-    width: 100px;
-    background-color: skyblue;
+    margin: 3%;
+    padding: 2%;
+    background-color: #b61264;
+    color: white;
 }
 /* Modal */
 .edit-mode{
@@ -25,7 +27,7 @@
     border-radius: 15px;
     border: 2px solid black;
     padding:2%;
-    height: 55%;
+    height: 70%;
     z-index: 5000;
 }
 .show textarea{
